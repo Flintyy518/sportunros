@@ -1,0 +1,97 @@
+// Основные стили для header
+.site-header {
+    background-color: #004080; // Цвет фона для хедера
+    padding: 1rem;
+
+    .site-logo img {
+        // Размер логотипа
+        max-width: 120px;
+        max-height: 50px; 
+    }
+
+    .header-icons {
+        display: flex;
+        align-items: center;
+
+        .search-icon {
+            margin-right: 1rem;
+            i {
+                font-size: 1.5rem;
+                color: white;
+            }
+        }
+
+        .hamburger-menu-btn {
+            border: none;
+            background: transparent;
+            padding: 0;
+            .navbar-toggler-icon {
+                width: 30px;
+                height: 30px;
+                background-image: url('data:image/svg+xml;base64,...'); // иконка burger-menu (или можно использовать иконки Bootstrap)
+            }
+        }
+    }
+
+    .mobile-menu {
+        display: none;
+        background-color: #004080;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                padding: 0.5rem 1rem;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                &.menu-item-has-children > a::after {
+                    content: "▼";
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+// Медиазапросы для десктопа
+@media (min-width: 768px) {
+    .site-header {
+        .header-icons {
+            .hamburger-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu {
+            display: flex;
+            flex-direction: row;
+            position: static;
+            width: auto;
+
+            .menu-list {
+                display: flex;
+
+                li {
+                    padding: 0;
+                    margin-right: 2rem;
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
