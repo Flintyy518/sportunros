@@ -1,3 +1,10 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "cSpell.language": "en,ru",
+    "cSpell.words": [
+        "Jakomo",
+        "sportunros",
+        "stylelint",
+        "ОГФСО"
+    ]
 }
