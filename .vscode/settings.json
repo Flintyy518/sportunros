@@ -6,5 +6,24 @@
         "sportunros",
         "stylelint",
         "ОГФСО"
-    ]
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.stylelint": "explicit"
+    },
+    "stylelint.validate": [
+        "css",
+        "scss",
+        "sass"
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/assets/css"  // Указываем путь, куда будут сохраняться файлы CSS
+        }
+    ],
+    "liveSassCompile.settings.includeItems": [
+        "/assets/scss/*.scss"  // Указываем, какие SCSS-файлы компилировать
+    ],
+    "liveSassCompile.settings.showOutputWindowOn": "Warning"  // Настройка вывода окна при компиляции
 }

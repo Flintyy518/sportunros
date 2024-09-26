@@ -1,0 +1,78 @@
+@import 'variables';
+@import 'mixins';
+
+.main-swiper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  
+    .swiper-wrapper {
+      display: flex;
+      transition-duration: 1000ms;
+    }
+  
+    .swiper-slide {
+      width: 1140px;
+      margin-right: $gap-large;
+  
+      a {
+        text-decoration: none;
+        img {
+          width: 100%;
+          display: block;
+        }
+  
+        .slide-tag {
+          @include heading-style();
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: $gap-small;
+          color: $secondary-color;
+          position: absolute;
+          bottom: $gap-medium;
+          left: $gap-medium;
+        }
+      }
+    }
+  
+    // Навигационные кнопки
+    .swiper-button-prev,
+    .swiper-button-next {
+      @include arrow-style();
+      background-color: $arrow-background;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+  
+      &:hover {
+        background-color: darken($arrow-background, 10%);
+      }
+    }
+  
+    // Индикатор прогресса
+    .swiper-progress {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+  
+      .swiper-progress-loader {
+        height: 4px;
+        background-color: $primary-color;
+        flex-grow: 1;
+      }
+  
+      .swiper-progress__counter {
+        display: flex;
+        align-items: center;
+        margin-left: $gap-small;
+        
+        div {
+          color: $secondary-text-color;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,77 @@
+// Title
+@mixin heading-style() {
+  color: $heading-color;
+  font-size: $heading-font-size;
+  font-weight: $heading-font-weight;
+  line-height: 140%;
+}
+
+// Typography
+@mixin secondary-text-color {
+  color: $secondary-color;
+}
+
+// Gap
+@mixin gap-style($size) {
+  gap: $size;
+}
+
+// Button
+@mixin button-style {
+  display: $btn-display;
+  height: $btn-height;
+  padding: $btn-padding;
+  background-color: $btn-background;
+  font-weight: $btn-font-weight;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+  color: $btn-color;
+  border-radius: $btn-border-radius;
+  white-space: $btn-white-space;
+}
+
+// Links
+@mixin link-style() {
+  color: $link-color;
+  font-size: $link-font-size;
+  font-weight: $link-font-weight;
+  text-decoration: none;
+  transition: $default-transition;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Copyright
+@mixin copyright-style() {
+  font-size: $copyright-font-size;
+  color: $copyright-color;
+  padding-top: $copyright-padding-top;
+  border-top: $copyright-border-top;
+  text-align: center;
+}
+
+// Arrow
+@mixin arrow-style() {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  width: $arrow-size;
+  height: $arrow-size;
+  background: $arrow-background;
+  border-radius: $arrow-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: $arrow-opacity;
+  visibility: $arrow-visibility;
+  pointer-events: $arrow-pointer-events;
+  transform: rotate(360deg) translateX(-50px);
+  transition: $default-transition;
+}
+

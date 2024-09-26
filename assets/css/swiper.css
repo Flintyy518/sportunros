@@ -1,0 +1,83 @@
+.main-swiper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.main-swiper .swiper-wrapper {
+  display: flex;
+  transition-duration: 1000ms;
+}
+.main-swiper .swiper-slide {
+  width: 1140px;
+  margin-right: 24px;
+}
+.main-swiper .swiper-slide a {
+  text-decoration: none;
+}
+.main-swiper .swiper-slide a img {
+  width: 100%;
+  display: block;
+}
+.main-swiper .swiper-slide a .slide-tag {
+  color: #232327;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 140%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  color: #fff;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
+.main-swiper .swiper-button-prev,
+.main-swiper .swiper-button-next {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  width: 50px;
+  height: 50px;
+  background: #232327;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: rotate(360deg) translateX(-50px);
+  transition: 0.3s ease-in-out;
+  background-color: #232327;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+.main-swiper .swiper-button-prev:hover,
+.main-swiper .swiper-button-next:hover {
+  background-color: #0b0b0c;
+}
+.main-swiper .swiper-progress {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+.main-swiper .swiper-progress .swiper-progress-loader {
+  height: 4px;
+  background-color: #f5f4fa;
+  flex-grow: 1;
+}
+.main-swiper .swiper-progress .swiper-progress__counter {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+.main-swiper .swiper-progress .swiper-progress__counter div {
+  color: #9497AA;
+}

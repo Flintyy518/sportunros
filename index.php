@@ -7,8 +7,7 @@
 ?>
 
         <div class="container">
-            <h1>Добро пожаловать на мой сайт.</h1>
-            <p>Это основное содержимое.</p>
+            <?php get_template_part('/template-parts/slider'); ?>
         </div>
 
 <?php get_template_part( 'template-parts/footer' ); ?>

@@ -1,0 +1,59 @@
+// Main Colors
+$primary-color: #f5f4fa;
+$secondary-color: #fff;
+$primary-text-color: #232327;
+$header-topline-color: #073c79;
+$secondary-text-color: #9497AA;
+$border-color: #c6cbd9;
+
+// Font
+$primary-font: 'Manrope', sans-serif;
+
+// Gaps
+$gap-small: 8px;
+$gap-medium: 16px;
+$gap-large: 24px;
+
+// Shadow
+$box-shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+// Transition
+$default-transition: 0.3s ease-in-out;
+
+// Heading
+$heading-color: $primary-text-color;
+$heading-font-size: 1.2rem;
+$heading-font-weight: 600;
+
+// Link
+$link-color: $secondary-text-color;
+$link-hover-color: $primary-text-color;
+$link-font-size: 0.935rem;
+$link-font-weight: 500;
+
+// Copyright
+$copyright-font-size: 0.835rem;
+$copyright-color: $secondary-text-color;
+$copyright-padding-top: 1.5rem;
+$copyright-border-top: 1px solid $border-color;
+
+// Arrow
+$arrow-size: 50px;
+$arrow-background: #232327;
+$arrow-border-radius: 8px;
+$arrow-opacity: 0;
+$arrow-visibility: hidden;
+$arrow-pointer-events: none;
+
+// Button
+$btn-display: flex;
+$btn-height: fit-content;
+$btn-padding: 14px 24px;
+$btn-background: #288ee7;
+$btn-font-weight: 600;
+$btn-font-size: 14px;
+$btn-line-height: 20px;
+$btn-color: $secondary-color;
+$btn-border-radius: 8px;
+$btn-white-space: nowrap;
+

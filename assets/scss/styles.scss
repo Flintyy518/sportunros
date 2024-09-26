@@ -1,10 +1,12 @@
-// Основные стили для header
+@import "header";
+@import "swiper";
+@import "footer";
+
 .site-header {
-    background-color: #004080; // Цвет фона для хедера
+    background-color: #004080;
     padding: 1rem;
 
     .site-logo img {
-        // Размер логотипа
         max-width: 120px;
         max-height: 50px; 
     }
@@ -28,7 +30,7 @@
             .navbar-toggler-icon {
                 width: 30px;
                 height: 30px;
-                background-image: url('data:image/svg+xml;base64,...'); // иконка burger-menu (или можно использовать иконки Bootstrap)
+                background-image: url('data:image/svg+xml;base64,...'); 
             }
         }
     }
@@ -65,7 +67,7 @@
     }
 }
 
-// Медиазапросы для десктопа
+
 @media (min-width: 768px) {
     .site-header {
         .header-icons {
