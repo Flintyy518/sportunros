@@ -1,78 +1,238 @@
-@import 'variables';
-@import 'mixins';
+@import '_base';
 
 .main-swiper {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    overflow: hidden;
-  
+  width: 262px;
+  height: 205px;
+  margin: 0 auto;
+
+  .swiper {
+    width: unset;
+    position: relative;
+    height: 148px;
+    top: 26px;
+    box-shadow: $box-shadow-dark;
+    border-radius: 8px;
+
     .swiper-wrapper {
       display: flex;
-      transition-duration: 1000ms;
-    }
-  
-    .swiper-slide {
-      width: 1140px;
-      margin-right: $gap-large;
-  
-      a {
-        text-decoration: none;
-        img {
-          width: 100%;
-          display: block;
-        }
-  
-        .slide-tag {
-          @include heading-style();
-          background-color: rgba(0, 0, 0, 0.5);
-          padding: $gap-small;
-          color: $secondary-color;
-          position: absolute;
-          bottom: $gap-medium;
-          left: $gap-medium;
-        }
-      }
-    }
-  
-    // Навигационные кнопки
-    .swiper-button-prev,
-    .swiper-button-next {
-      @include arrow-style();
-      background-color: $arrow-background;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: all;
-  
-      &:hover {
-        background-color: darken($arrow-background, 10%);
-      }
-    }
-  
-    // Индикатор прогресса
-    .swiper-progress {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-  
-      .swiper-progress-loader {
-        height: 4px;
-        background-color: $primary-color;
-        flex-grow: 1;
-      }
-  
-      .swiper-progress__counter {
-        display: flex;
-        align-items: center;
-        margin-left: $gap-small;
-        
-        div {
-          color: $secondary-text-color;
+      
+      .swiper-slide {
+        height: auto;
+        border-radius: 8px;
+        transition: $default-transition;
+
+        a {
+          text-decoration: none;
+
+
+          .sld-bnr-ldr {
+            background: url('../images/slider/icons/LDN.gif') 50% no-repeat / 48px;
+            border-radius: 8px;
+          }
+          
+          .sld-bnr-1st {
+            @include img-sz-swiper();
+            @include rspn-bg-swiper($sldr-img-sm, $sldr-img-lrg);
+          }
+
+          .sld-bnr-2nd {
+            @include img-sz-swiper();
+            @include rspn-bg-swiper($sldr-img-sm-2, $sldr-img-lrg-2);
+          }
+
+          .sld-bnr-3rd {
+            @include img-sz-swiper();
+            @include rspn-bg-swiper($sldr-img-sm-3, $sldr-img-lrg-3);
+          }
+
+          .slide-tag {
+            position: absolute;
+            left: 2%;
+            top: 50%;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-weight: 400;
+            font-size: 0.5rem;
+            background: rgba(198, 203, 217, 0.72);
+            color: $secondary-color;
+          }
         }
       }
     }
   }
-  
+
+  // Nav Buttons
+
+  // Off arrows by Bootstrap
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none !important; 
+  }
+
+  .swiper-button-next {
+    right: 0;
+    border-radius: 0 0 8px 0;
+  }
+
+  .swiper-button-prev {
+    right: 32px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+    background: $primary-text-color;
+    bottom: 0;
+    transform: none;
+    left: unset;
+    top: unset;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: darken($arrow-background, 10%);
+      transition: $default-transition;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('../images/slider/icons/ARR.png') no-repeat center/cover;
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .swiper-button-prev:before {
+    transform: rotate(180deg) translate(50%, 50%) !important;
+  }
+
+  // Progress Bar
+  .swiper-progress {
+    position: absolute;
+    left: 7%;
+    bottom: 7%;
+    height: 3px;
+    background: hsla(0, 0%, 100%, 0.5);
+    width: calc(82.3% - 84px);
+    z-index: 1;
+
+    .swiper-progress-loader {
+      position: absolute;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: $secondary-color;
+    }
+
+    .swiper-progress__counter {
+      position: absolute;
+      transform: translateY(-100%);
+      right: 0;
+      display: flex;
+      align-items: flex-end;
+      color: $secondary-color;
+    }
+
+    .swiper-progress__counter-current {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+
+    .swiper-progress__counter-sep {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 34px;
+    }
+
+    .swiper-progress__counter-sum {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 32px;
+      color: $secondary-text-color;
+    }
+  }
+}
+
+/* Slider */
+
+@media (min-width: 375px) and (max-width: 424.99px) {
+  @include swiper-size(map-get($swiper-sizes, "375-424")...);
+}
+
+@media (min-width: 425px) and (max-width: 474.99px) {
+  @include swiper-size(map-get($swiper-sizes, "425-474")...);
+}
+
+@media (min-width: 475px) and (max-width: 524.99px) {
+  @include swiper-size(map-get($swiper-sizes, "475-524")...);
+}
+
+@media (min-width: 525px) and (max-width: 574.99px) {
+  @include swiper-size(map-get($swiper-sizes, "525-574")...);
+}
+
+@media (min-width: 575px) and (max-width: 624.99px) {
+  @include swiper-size(map-get($swiper-sizes, "575-624")...);
+}
+
+@media (min-width: 625px) and (max-width: 674.99px) {
+  @include swiper-size(map-get($swiper-sizes, "625-674")...);
+}
+
+@media (min-width: 675px) and (max-width: 767.99px) {
+  @include swiper-size(map-get($swiper-sizes, "675-767")...);
+}
+
+@media (min-width: 768px) and (max-width: 874.99px) {
+  @include swiper-size(map-get($swiper-sizes, "768-874")...);
+}
+
+@media (min-width: 875px) and (max-width: 991.99px) {
+  @include swiper-size(map-get($swiper-sizes, "875-991")...);
+}
+
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  @include swiper-size(map-get($swiper-sizes, "992-1199")...);
+}
+
+@media (min-width: 1200px) and (max-width: 1399.99px) {
+  @include swiper-size(map-get($swiper-sizes, "1200-1399")...);
+}
+
+@media (min-width: 1400px) and (max-width: 1599.99px) {
+  @include swiper-size(map-get($swiper-sizes, "1400-1599")...);
+}
+
+@media (min-width: 1600px) {
+  @include swiper-size(map-get($swiper-sizes, "1600+")...);
+}
+
+// Arrow
+
+@media (min-width: 568px) and (max-width: 767.99px) {
+  .swiper {
+    .swiper-button-prev { right: 42px; }
+    @include swiper-arrows(map-get($swiper-arrows-sizes, "568-767")...); 
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.99px) {
+  .swiper {
+    .swiper-button-prev { right: 52px; }
+    @include swiper-arrows(map-get($swiper-arrows-sizes, "768-1199")...); 
+  }
+}
+
+@media (min-width: 1200px) {
+  .swiper {
+    .swiper-button-prev { right: 60px; }
+    @include swiper-arrows(map-get($swiper-arrows-sizes, "1200+")...); 
+  }
+}
+
+/* Other */
+@media (max-width: 374.99px) { .main-swiper { margin-bottom: 12px; } }

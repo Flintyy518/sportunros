@@ -1,3 +1,7 @@
+@import '_variables';
+
+/* Typography */
+
 // Title
 @mixin heading-style() {
   color: $heading-color;
@@ -6,18 +10,226 @@
   line-height: 140%;
 }
 
-// Typography
-@mixin secondary-text-color {
-  color: $secondary-color;
+// Text
+@mixin txt-trm (
+  $txt-frmt--webkit-line-clamp: $txt-frmt--webkit-line-clamp,
+  $txt-frmt-text-align: $txt-frmt-text-align,
+) {
+  display: $txt-frmt-display;
+  -webkit-line-clamp: $txt-frmt--webkit-line-clamp;
+  -webkit-box-orient: $txt-frmt--webkit-box-orient;
+  overflow: $txt-frmt-overflow;
+  text-overflow: $txt-frmt-text-overflow;
+  text-align: $txt-frmt-text-align;
+  max-height: $txt-frmt-max-height;
 }
+
+/* Other */
 
 // Gap
 @mixin gap-style($size) {
   gap: $size;
 }
 
+// Links
+@mixin link-style(
+  $link-color: $link-color
+  ) {
+  color: $link-color;
+  font-size: $link-font-size;
+  font-weight: $link-font-weight;
+  text-decoration: none;
+  transition: $default-transition;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-hvr-color;
+  }
+}
+
+/* Header */
+@mixin drp-dwn-mn-it {
+  display: $drpdwn-mn-itm-display;
+  justify-content: $drpdwn-mn-itm-justify-content;
+  width: $drpdwn-mn-itm-width;
+  padding: $drpdwn-mn-itm-padding;
+  padding-left: $drpdwn-mn-itm-padding-left;
+  text-align: $drpdwn-mn-itm-text-align;
+  white-space: $drpdwn-mn-itm-white-space;
+}
+
+/* Slider */
+@mixin rspn-bg-swiper(
+  $sm-img,
+  $md-img
+  ) {
+  background-image: url($sm-img);
+
+  @media (min-width: $breakpoint-sm) {
+    background-image: url($md-img);
+  }
+}
+
+@mixin img-sz-swiper{
+width: $sldr-img-width;
+height: $sldr-img-height;
+background-size: $sldr-img-background-size;
+background-position: $sldr-img-background-position;
+}
+
+@mixin swiper-size (
+  $width, 
+  $height, 
+  $bottom, 
+  $margin-top
+  ) {
+  .main-swiper {
+    width: $width;
+    height: $height;
+    position: relative;
+    bottom: $bottom;
+    margin-top: $margin-top;
+
+    .swiper {
+      height: $height;
+      width: unset;
+    }
+  }
+}
+
+@mixin swiper-arrows(
+  $size,
+  $icon-size
+  ) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: $size;
+    height: $size;
+
+    &:before {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+}
+
+@mixin news-block (
+  $width-crd-itm,
+  $width-wrppr, 
+  $height-wrppr,
+  $width-cntnt
+  ) {
+  .news .news__list {
+
+    .card-item {
+      width: $width-crd-itm;
+
+      .card-item__image-wrapper {
+        width: $width-wrppr;
+        height: $height-wrppr;
+      }  
+    }
+
+    .card-item__content {
+      .card-item__summary {
+        width: $width-cntnt;
+      }
+    }
+  }
+}
+
+@mixin news-block-extr (
+  $width-crd-itm, 
+  $width-wrppr, 
+  $height-wrppr,
+  $width-cntnt
+  ) {
+  .news .news__list {
+    .large-card-1, .large-card-2 {
+      width: $width-crd-itm;
+
+      .card-item__image-wrapper {
+        width: $width-wrppr;
+        height: $height-wrppr;
+      }
+
+      .card-item__content {
+        .card-item__summary {
+          width: $width-cntnt;
+        }
+      }
+    }
+  }
+}
+
+@mixin events-block (
+  $width-wrppr, 
+  $height-wrppr,
+  $width-cntnt
+  ) {
+    .events {
+      
+      .events__grid { 
+        .events__grid-items { 
+          .card-item__image-wrapper {
+            width: $width-wrppr;
+            height: $height-wrppr;
+          }
+          
+          .card-item__content {
+            .card-item__summary {
+              width: $width-cntnt;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @mixin all-txt (
+    $fnt-sz-tlt,
+    $fnt-sz-dsc,
+    $fnt-sz-ftdt
+    ) {
+    .news, .events {
+      .card-item__content {
+        .card-item__title {
+          font-size: $fnt-sz-tlt;
+        }
+  
+        .card-item__summary {
+          font-size: $fnt-sz-dsc;
+        }
+      }
+  
+      .card-item__footer {
+        .card-item__date,
+        .card-item__time {
+          font-size: $fnt-sz-ftdt;
+        }
+      }
+    }
+  }
+
+/* Copyright */
+@mixin copyright-style() {
+  font-size: $copyright-font-size;
+  color: $copyright-color;
+  padding-top: $copyright-padding-top;
+  border-top: $copyright-border-top;
+  text-align: center;
+}
+
+/* Elements */
+
 // Button
-@mixin button-style {
+@mixin button-style (
+  $btn-padding: $btn-padding,
+  $btn-font-size: $btn-font-size,
+  $btn-background: $btn-background,
+  $btn-color: $btn-color,
+  $btn-border-radius: $btn-border-radius
+  ) {
   display: $btn-display;
   height: $btn-height;
   padding: $btn-padding;
@@ -30,31 +242,38 @@
   white-space: $btn-white-space;
 }
 
-// Links
-@mixin link-style() {
-  color: $link-color;
-  font-size: $link-font-size;
-  font-weight: $link-font-weight;
-  text-decoration: none;
-  transition: $default-transition;
-  cursor: pointer;
-
-  &:hover {
-    color: $link-hover-color;
-  }
+@mixin btn-extr-stl (
+  $btn-extr-width: $btn-extr-width,
+  $btn-extr-text-align: $btn-extr-text-align
+) {
+  position: $btn-extr-position;
+  width: $btn-extr-width;
+  border: $btn-extr-border;
+  justify-content: $btn-extr-justify-content;
+  text-align: $btn-extr-text-align;
+  text-decoration: $lnk-text-decoration;
 }
 
-// Copyright
-@mixin copyright-style() {
-  font-size: $copyright-font-size;
-  color: $copyright-color;
-  padding-top: $copyright-padding-top;
-  border-top: $copyright-border-top;
-  text-align: center;
+@mixin btn-hvr (
+  $primary-text-color: $primary-text-color,
+  $default-transition: $default-transition
+  ) {
+  background: $primary-text-color;
+  transition: $default-transition;
+  color: $secondary-color;
+  cursor: $btn-extr-cursor;
+  scale: $btn-extr-scale;
+}
+
+// Horizontal line
+@mixin horizontal-line () {
+  background: $hr-background;
+  width: $hr-width;
+  margin: $hr-margin;
 }
 
 // Arrow
-@mixin arrow-style() {
+@mixin arrow-style () {
   position: fixed;
   right: 16px;
   bottom: 24px;
@@ -75,3 +294,49 @@
   transition: $default-transition;
 }
 
+// Strip
+@mixin strip (
+  $strip-background-color: $strip-background-color,
+  $strip-position: $strip-position,
+  $strip-height: $strip-height,
+  $strip-width: $strip-width,
+  $strip-top: $strip-top,
+  $strip-left: $strip-left
+  ) {
+  content: $strip-content;
+  position: $strip-position;
+  height: $strip-height;
+  width: $strip-width;
+  top: $strip-top;
+  left: $strip-left;
+  transform: $strip-transform;
+  transform-origin: $strip-transform-origin;
+  background-color: $strip-background-color;
+}
+
+// Date and Time
+@mixin parameters-before {
+
+  display: $prmtr-bf-display;
+  width: $prmtr-bf-width;
+  height: $prmtr-bf-height;
+  font-family: $prmtr-bf-font-family;
+  font-weight: $prmtr-bf-font-weight;
+  font-size: $prmtr-bf-font-size;
+  color: $prmtr-bf-color;
+}
+
+@mixin parameters {
+  display: $prmtr-display;
+  align-items: $prmtr-align-items;
+  width: $prmtr-width;
+  margin-top: $prmtr-margin-top;
+  padding: $prmtr-padding;
+  column-gap: $prmtr-column-gap;
+  font-size: $prmtr-font-size;
+  font-weight: $prmtr-font-weight;
+  line-height: $prmtr-line-height;
+  color: $prmtr-color;
+  background: $prmtr-background;
+  border-radius: $prmtr-border-radius;
+}

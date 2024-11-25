@@ -1,6 +1,5 @@
-@import "header";
-@import "swiper";
-@import "footer";
+@import "_base";
+@import "_components";
 
 .site-header {
     background-color: #004080;
@@ -26,6 +25,7 @@
         .hamburger-menu-btn {
             border: none;
             background: transparent;
+            padding: 0;
             padding: 0;
             .navbar-toggler-icon {
                 width: 30px;

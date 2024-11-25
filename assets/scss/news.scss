@@ -1,0 +1,280 @@
+@import '_base';
+
+.news {
+  display: flex;
+  flex-direction: column;
+  margin: 56px auto 32px;
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 20px;
+    margin: 0 32px;
+  }
+  
+  &__header::before {
+    @include strip();
+  }
+  
+  &__title {
+    color: $primary-text-color;
+    font: inherit;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  &__all {
+    display: none;
+  }
+  
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    gap: $gap-large;
+    padding-top: 8px;
+    box-sizing: border-box;
+    
+    .card-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 8px auto;
+      background-color: $primary-color;
+      border-radius: $btn-border-radius;
+      box-shadow: $box-shadow-light;
+      padding: $gap-medium;
+      text-decoration: none;
+      transition: $default-transition;
+      
+      &:hover {
+        box-shadow: $box-shadow-dark;
+        scale: (1.025);
+      }
+      
+      &__image-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 8px;
+        
+        .card-item__image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: inherit;
+        }
+      }
+      
+      &__content {
+        margin-top: $gap-small;
+        line-height: 18px;
+        
+        .card-item__title {
+          text-align: center;
+          font-size: 0.85rem;
+          font-weight: 600;
+          line-height: 20px;
+          color: $primary-text-color;
+          margin-bottom: 8px;
+        }
+        
+        .card-item__summary {
+          width: 36ch;
+          margin: 0 auto;
+          font-size: 0.75rem;
+          color: $secondary-text-color;
+          @include txt-trm();
+        }
+      }
+
+      &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: $gap-small;
+        color: $secondary-text-color;
+        margin-top: auto;
+        justify-content: center;
+
+        .card-item__date,
+        .card-item__time {
+          @include parameters();
+        }
+
+        .card-item__date::before {
+          content: $prmtr-bf-clndr-content;
+          @include parameters-before();
+        }
+
+        .card-item__time::before {
+          content: $prmtr-bf-clck-content;
+          @include parameters-before();
+        }
+      }
+    }
+  }
+
+  &__all-mobile {
+    margin: 32px auto 12px;
+    @include button-style(
+      10px 20px,
+      0.8rem,
+      $secondary-text-color,
+      $secondary-color
+      );
+    @include btn-extr-stl(center);
+  }
+  
+  &__all-mobile:active {
+    @include btn-hvr();
+  }
+}
+
+/* Block Setting */
+
+@media (max-width: 374.99px) {
+  @include news-block(map-get($news-block, "374-")...);
+}
+
+@media (min-width: 375px) and (max-width: 424.99px) {
+  @include news-block(map-get($news-block, "375-424")...);
+}
+
+@media (min-width: 425px) and (max-width: 474.99px) {
+  @include news-block(map-get($news-block, "425-474")...);
+}
+
+@media (min-width: 475px) and (max-width: 524.99px) {
+  @include news-block(map-get($news-block, "475-524")...);
+}
+
+@media (min-width: 525px) and (max-width: 574.99px) {
+  @include news-block(map-get($news-block, "525-574")...);
+}
+
+@media (min-width: 575px) and (max-width: 624.99px) {
+  @include news-block(map-get($news-block, "575-624")...);
+}
+
+@media (min-width: 625px) and (max-width: 767.99px) {
+  @include news-block(map-get($news-block, "625-767")...);
+}
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+  .card-item__title { @include txt-trm(2); }
+  @include news-block(map-get($news-block, "768-991")...);
+}
+
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  @include news-block(map-get($news-block, "992-1199")...);
+  @include news-block-extr(map-get($news-block-extr, "992-1199")...);
+}
+
+@media (min-width: 1200px) and (max-width: 1399.99px) {
+  @include news-block(map-get($news-block, "1200-1399")...);
+  @include news-block-extr(map-get($news-block-extr, "1200-1399")...);
+}
+
+@media (min-width: 1400px) {
+  @include news-block(map-get($news-block, "1400+")...);
+  @include news-block-extr(map-get($news-block-extr, "1400+")...);
+}
+
+/* Grid Setting */
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+  .news {
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .news {
+    .news__list {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 
+        "large1 large1 large2 large2"
+        "small1 small2 small3 small4";
+      gap: $gap-medium;
+
+      .card-item__title { @include txt-trm(2, center); }
+
+      .large-card-1, .large-card-2 {
+        .card-item__title { @include txt-trm(1, center); }
+      }  
+    }
+
+    .large-card-1 { grid-area: large1; }
+    .large-card-2 { grid-area: large2; }
+    .small-card:nth-child(3) { grid-area: small1; }
+    .small-card:nth-child(4) { grid-area: small2; }
+    .small-card:nth-child(5) { grid-area: small3; }
+    .small-card:nth-child(6) { grid-area: small4; }
+  }
+}
+
+/* Typography */
+
+@media (min-width: 375px) and (max-width: 624.99px) {
+  @include all-txt(map-get($all-txt, "375-624")...);
+}
+
+@media (min-width: 625px) and (max-width: 767.99px) {
+  @include all-txt(map-get($all-txt, "625-767")...);
+}
+
+@media (min-width: 768px) and (max-width: 991.99px) {
+  @include all-txt(map-get($all-txt, "768-991")...);
+}
+
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  .card-item__title { @include txt-trm(3); }
+  @include all-txt(map-get($all-txt, "992-1199")...);
+}
+
+@media (min-width: 1200px) {
+  .card-item__title { @include txt-trm(3); }
+  @include all-txt(map-get($all-txt, "1200+")...);
+}
+
+/* Button Show More */
+
+@media (min-width: 768px) {
+  .news {
+    &__all-mobile {
+      display: none;
+    }
+
+    .news__header {
+      justify-content: space-between;
+
+      .news__all {
+        @include button-style(
+          8px 18px,
+          0.85rem,
+          $secondary-text-color,
+          $secondary-color
+          );
+        @include btn-extr-stl($primary-text-color);
+      }
+      
+      .news__all:hover {
+        @include btn-hvr();
+      }
+    }
+  }
+}
+
+/* Other */
+@media (min-width: 768px) { .news { margin-bottom: 52px; } }

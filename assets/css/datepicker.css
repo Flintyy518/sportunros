@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* Main */
+/* Breakpoints */
+/* Header */
+/* Images */
+/* Heading */
+/* Link */
+/* Copyright */
+/* Arrow */
+/* Button */
+/* Strip */
+/* Parameters */
+/* Main */
+/* Breakpoints */
+/* Header */
+/* Images */
+/* Heading */
+/* Link */
+/* Copyright */
+/* Arrow */
+/* Button */
+/* Strip */
+/* Parameters */
+/* Typography */
+/* Other */
+/* Header */
+/* Slider */
+/* Copyright */
+/* Elements */
+/* Main */
+/* Breakpoints */
+/* Header */
+/* Images */
+/* Heading */
+/* Link */
+/* Copyright */
+/* Arrow */
+/* Button */
+/* Strip */
+/* Parameters */
+/* Main */
+/* Breakpoints */
+/* Header */
+/* Images */
+/* Heading */
+/* Link */
+/* Copyright */
+/* Arrow */
+/* Button */
+/* Strip */
+/* Parameters */
+/* Typography */
+/* Other */
+/* Header */
+/* Slider */
+/* Copyright */
+/* Elements */
+.container, .container-fluid {
+  --bs-gutter-x: 0;
+}
+
+/* Изменение цвета фона календаря */
+.datepicker-container {
+  background-color: #f0f0f0;
+}
+
+/* Изменение цвета активной даты */
+.datepicker-selected {
+  background-color: #4CAF50;
+  color: 0;
+}
+
+/* Изменение размера шрифта дней недели */
+.datepicker--days-row-header td {
+  font-size: 14px;
+}
+
+/* Скрытие стрелок навигации */
+.datepicker--nav-prev,
+.datepicker--nav-next {
+  display: none;
+}

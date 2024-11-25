@@ -1,6 +1,13 @@
-// Main Colors
+/* Main */
+
+//Colors
 $primary-color: #f5f4fa;
 $secondary-color: #fff;
+$extra-color: #4CAF50;
+$extra-color-2: #288ee7;
+$extra-color-3: #ff6617;
+$extra-color-4: #073c79;
+$extra-color-5: #f33737;
 $primary-text-color: #232327;
 $header-topline-color: #073c79;
 $secondary-text-color: #9497AA;
@@ -9,35 +16,147 @@ $border-color: #c6cbd9;
 // Font
 $primary-font: 'Manrope', sans-serif;
 
+// Text trimming
+$txt-frmt-display: -webkit-box;
+$txt-frmt--webkit-line-clamp: 4;
+$txt-frmt--webkit-box-orient: vertical;
+$txt-frmt-overflow: hidden;
+$txt-frmt-text-overflow: ellipsis;
+$txt-frmt-text-align: justify;
+$txt-frmt-max-height: 6.5em;
+
 // Gaps
 $gap-small: 8px;
 $gap-medium: 16px;
 $gap-large: 24px;
 
+// Horizontal line
+$hr-background: $border-color;
+$hr-width: 100%;
+$hr-margin: 0 auto;
+
 // Shadow
 $box-shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+$box-shadow-dark: 2px 2px 6px 1px #232327c3;
 
 // Transition
-$default-transition: 0.3s ease-in-out;
+$default-transition: all .4s ease-in-out;
 
-// Heading
+/* Breakpoints */
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;
+
+/* Header */
+
+// Dropdown Menu Item
+$drpdwn-mn-itm-display: flex;
+$drpdwn-mn-itm-justify-content: center;
+$drpdwn-mn-itm-width: 100%;
+$drpdwn-mn-itm-padding: 4px 8px;
+$drpdwn-mn-itm-padding-left: 16px;
+$drpdwn-mn-itm-text-align: center;
+$drpdwn-mn-itm-white-space: nowrap;
+
+/* Images */
+
+// Slider
+$sldr-img-sm: '../images/slider/device/mob/GBM.jpg';
+$sldr-img-lrg: '../images/slider/device/desk/GBD.jpg';
+$sldr-img-sm-2: '../images/slider/device/mob/RTM.jpg';
+$sldr-img-lrg-2: '../images/slider/device/desk/RTD.jpg';
+$sldr-img-sm-3: '../images/slider/device/mob/PRM.jpg';
+$sldr-img-lrg-3: '../images/slider/device/desk/PRD.jpg';
+$sldr-img-width: 100%;
+$sldr-img-height: 100%;
+$sldr-img-background-size: contain;
+$sldr-img-background-position: center;
+
+$swiper-sizes: (
+  "375-424": (325px, 184px, 76px, 78px),
+  "425-474": (359px, 203px, 76px, 78px),
+  "475-524": (395px, 223px, 76px, 78px),
+  "525-574": (430px, 243px, 76px, 78px),
+  "575-624": (485px, 274px, 76px, 78px),
+  "625-674": (520px, 293px, 82px, 86px),
+  "675-767": (535px, 302px, 82px, 86px),
+  "768-874": (675px, 262px, 100px, 136px),
+  "875-991": (725px, 280px, 100px, 136px),
+  "992-1199": (875px, 340px, 100px, 136px),
+  "1200-1399": (1040px, 404px, 100px, 142px), 
+  "1400-1599": (1200px, 466px, 100px, 142px), 
+  "1600+": (1317px, 510px, 100px, 142px)    
+);
+
+$swiper-arrows-sizes: (
+  "568-767": (42px, 16px),
+  "768-1199": (52px, 20px),
+  "1200+": (60px, 26px)
+);
+
+$news-block: (
+  "374-": (290px, 260px, 180px, 34ch),
+  "375-424": (345px, 310px, 180px, 38ch),
+  "425-474": (385px, 340px, 200px, 42ch),
+  "475-524": (415px, 360px, 210px, 46ch),
+  "525-574": (475px, 425px, 240px, 54ch),
+  "575-624": (515px, 465px, 220px, 58ch),
+  "625-767": (520px, 470px, 180px, 50ch),
+  "768-991": (350px, 315px, 200px, 32ch),
+  "992-1199": (225px, 190px, 150px, 20ch),
+  "1200-1399": (270px, 230px, 200px, 22ch), 
+  "1400+": (315px, 260px, 175px, 25ch)
+);
+
+$news-block-extr: (
+  "992-1199": (470px, 430px, 175px, 46ch),
+  "1200-1399": (555px, 515px, 200px, 50ch), 
+  "1400+": (650px, 590px, 200px, 60ch)
+);
+
+$events-block: (
+  "374-": (280px, 170px, 36ch),
+  "375-424": (320px, 180px, 38ch),
+  "425-474": (350px, 200px, 42ch),
+  "475-524": (370px, 210px, 46ch),
+  "525-574": (435px, 240px, 54ch),
+  "575-624": (470px, 240px, 58ch),
+  "625-767": (520px, 230px, 52ch),
+  "768-991": (315px, 180px, 36ch),
+  "992-1199": (300px, 175px, 32ch),
+  "1200-1399": (250px, 175px, 25ch), 
+  "1400+": (260px, 175px, 27ch)
+);
+
+$all-txt: (
+  "375-624": (0.9rem, 0.8rem, 0.7rem),
+  "625-767": (1.1rem, 0.95rem, 0.75rem),
+  "768-991": (1.2rem, 0.95rem, 0.65rem),
+  "992-1199": (1.05rem, 0.95rem, 0.7rem),
+  "1200+": (1.15rem, 1rem, 0.6rem)
+);
+
+/* Heading */
 $heading-color: $primary-text-color;
 $heading-font-size: 1.2rem;
 $heading-font-weight: 600;
 
-// Link
+/* Link */
 $link-color: $secondary-text-color;
-$link-hover-color: $primary-text-color;
+$link-hvr-color: #288ee7;
 $link-font-size: 0.935rem;
 $link-font-weight: 500;
+$lnk-text-decoration: none;
 
-// Copyright
+/* Copyright */
 $copyright-font-size: 0.835rem;
 $copyright-color: $secondary-text-color;
 $copyright-padding-top: 1.5rem;
 $copyright-border-top: 1px solid $border-color;
 
-// Arrow
+/* Arrow */
 $arrow-size: 50px;
 $arrow-background: #232327;
 $arrow-border-radius: 8px;
@@ -45,7 +164,9 @@ $arrow-opacity: 0;
 $arrow-visibility: hidden;
 $arrow-pointer-events: none;
 
-// Button
+/* Button */
+
+// Main
 $btn-display: flex;
 $btn-height: fit-content;
 $btn-padding: 14px 24px;
@@ -56,4 +177,59 @@ $btn-line-height: 20px;
 $btn-color: $secondary-color;
 $btn-border-radius: 8px;
 $btn-white-space: nowrap;
+
+// Extra
+$btn-extr-position: relative;
+$btn-extr-width: 100%;
+$btn-extr-border: 1px solid $primary-text-color;
+$btn-extr-justify-content: center;
+$btn-extr-text-align: center;
+$btn-extr-text-decoration: $lnk-text-decoration;
+
+// Hover
+$btn-extr-background: $extra-color;
+$btn-extr-color: $secondary-color;
+$btn-extr-cursor: pointer;
+$btn-extr-transition: $default-transition;
+$btn-extr-scale: 1.05;
+;
+
+/* Strip */
+$strip-content: '';
+$strip-position: absolute;
+$strip-height: 45%;
+$strip-width: 10px;
+$strip-top: 9px;
+$strip-left: 0;
+$strip-transform: skew(-30deg, 0);
+$strip-transform-origin: top;
+$strip-background-color: #26ca42;
+$strip-margin: auto 12px auto 6px;
+
+/* Parameters */
+
+// Before
+$prmtr-bf-font-family: 'Font Awesome 5 Free';
+$prmtr-bf-clndr-content: "\f073"; // CL
+$prmtr-bf-clck-content: "\f017"; // CLCK
+$prmtr-bf-display: inline-block;
+$prmtr-bf-width: 16px;
+$prmtr-bf-height: 16px;
+$prmtr-bf-font-weight: 500;
+$prmtr-bf-font-size: 14px;
+$prmtr-bf-color: $primary-text-color;
+
+// Container
+$prmtr-display: flex;
+$prmtr-align-items: center;
+$prmtr-width: fit-content;
+$prmtr-margin-top: 16px;
+$prmtr-padding: 4px 8px;
+$prmtr-column-gap: 6px;
+$prmtr-font-size: 0.6rem;
+$prmtr-font-weight: 500;
+$prmtr-line-height: 16px;
+$prmtr-color: $primary-text-color;
+$prmtr-background: $secondary-color;
+$prmtr-border-radius: 8px;
 

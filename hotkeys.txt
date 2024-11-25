@@ -1,0 +1,17 @@
+Legend → prnt.sc/73izl4eRn4S_
+
+Copy line up — Alt + Shift + UP (⌥ + ⇧ + UP)
+Copy line down — Alt + Shift + Down (⌥ + ⇧+ DOWN)
+Move line up — Alt + Up (⌥ + UP).
+Move line down — Alt + Down (⌥ + DOWN)
+Insert line below — Ctrl + Shift (^ + ↵)
+Insert line above — Ctrl + Shift + Enter (^ + ⇧ + ↵)
+Delete line — Ctrl + Shift + K (^+ ⇧ + K)
+
+Jump to matching bracket — Ctrl + Shift + \ (^ + ⇧ + \)
+Outdent line — Ctrl + [ (^ + [)
+Indent line — Ctrl + ] (^ + ])
+Fold region — Ctrl + Shift + [ (^ + ⇧ + [)
+Unfold region — Ctrl + Shift + ] (^ + ⇧ + ])
+
+Search File by Name — Ctrl + P (^ + P)

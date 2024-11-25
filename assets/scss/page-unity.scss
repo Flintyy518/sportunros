@@ -1,0 +1,130 @@
+@import '_base';
+
+.unity-page .unity-page__inner-wrapper { padding: 0 10px; margin: 32px auto 0;
+
+    a { text-decoration: none; color: $primary-text-color; }
+
+    .breadcrumbs { display: flex; column-gap: $gap-medium; font-size: 0.75em; justify-content: center;
+
+        .breadcrumbs__item {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            transition: color .4s ease;
+            white-space: nowrap
+        }
+
+        .breadcrumbs__item--prelast { color: $secondary-text-color; }
+
+        .breadcrumbs__item--prelast:hover { color: $primary-text-color; }
+
+        .breadcrumbs__item--last { font-weight: 600; }
+
+        .breadcrumbs__item--last:before {
+            content: "";
+            position: relative;
+            margin-right: 12px;
+            width: 4px;
+            height: 4px;
+            background: $primary-text-color;
+            border-radius: 50%;
+            transition: all .4s ease-in-out;
+        }
+    }
+
+    .page-title { 
+        font-size: 1.25em;
+        font-weight: 600; 
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        
+        @media (min-width: 576px) { font-size: 1.5em; } }
+
+    .page-title::before {
+        display: inline-block;
+        margin: auto 6px auto 12px;
+        @include strip ( $extra-color-3, relative, 17px, 10px, 0);
+    }
+
+    .unity-page__cards { display: grid; grid-template-columns: repeat(1, 1fr); column-gap: $gap-medium;
+        
+        @media (min-width: 768px) and (max-width: 991.99px) {
+            grid-template-columns: repeat(auto-fit, minmax(325px, 2fr));
+        }
+        
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+        }
+
+        @media (min-width: 1200px) { 
+            .gratitude { grid-column: span 2; 
+                img { height: 300px !important; }
+            } 
+        }
+      
+        .hoverable-card {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-self: center;
+            align-self: center;
+            width: 100%;
+            height: 285px;
+            margin: 8px 0;
+            opacity: 0.9;
+            border-radius: 8px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .3s ease-in-out;
+            overflow: hidden;
+
+            &:hover {
+                box-shadow: $box-shadow-dark;
+                transform: matrix(1.015, 0, 0, 1.015, 0, -3);
+                opacity: 1;
+            }
+                    
+            @media (min-width: 992px) {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 3fr));
+            }
+            
+            &--unity:last-child {
+                @media (min-width: 992px) and (max-width: 1199.99px) { grid-column: span 3; }
+            } 
+            
+            @media (min-width: 1200px) {
+                &--unity:last-child, &--unity:nth-child(9) {
+                    grid-column: span 2;
+                    height: 300px; 
+                }
+            }
+            
+            .hoverable-card__title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 0 8px;
+                color: $secondary-color;
+                font-size: 1em;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;
+                background-color: rgba(0, 0, 0, 0.25);
+                z-index: 1;
+                
+                @media (min-width: 576px) { font-size: 1.20em; } }
+                
+            .hoverable-card__img-icon { display: block; width: 100%; height: auto; }
+        }
+    }
+}

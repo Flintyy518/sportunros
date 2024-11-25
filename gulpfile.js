@@ -1,41 +1,37 @@
+// Подключаем зависимости
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
+const browserSync = require('browser-sync').create();
 
-// Пути для файлов
+// Путь к вашим SCSS и CSS файлам
 const paths = {
-    scss: 'assets/scss/**/*.scss',
-    css: 'assets/css',
-    html: '*.html',
-    php: '*.php',
-    js: 'assets/js/**/*.js'
+    scss: './assets/scss/**/*.scss',
+    css: './assets/css'
 };
 
-// Компиляция SCSS в CSS
-function compileSass() {
+// Задача для компиляции SCSS в CSS
+gulp.task('sass', function () {
     return gulp.src(paths.scss)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS())
-        .pipe(gulp.dest(paths.css))
-        .pipe(browserSync.stream()); // Обновление стилей без перезагрузки
-}
+        .pipe(sass().on('error', sass.logError))  // Компиляция SCSS в CSS
+        .pipe(gulp.dest(paths.css))               // Выгружаем CSS в папку
+        .pipe(browserSync.stream());              // Автообновление браузера
+});
 
-// Запуск browserSync и отслеживание изменений
-function watchFiles() {
+// Задача для запуска BrowserSync
+gulp.task('serve', function () {
+    // Инициализация локального сервера через BrowserSync
     browserSync.init({
-        proxy: "http://localhost:3000",  // Твой локальный сайт
-        notify: false
+        proxy: "sportunros.local",               // Прокси вашего PHP сервера
+        notify: false                            // Отключить уведомления о перезагрузке
     });
 
-    gulp.watch(paths.scss, compileSass);    // Отслеживание SCSS
-    gulp.watch(paths.html).on('change', browserSync.reload);  // Отслеживание HTML
-    gulp.watch(paths.php).on('change', browserSync.reload);   // Отслеживание PHP
-    gulp.watch(paths.js).on('change', browserSync.reload);    // Отслеживание JS
-}
+    // Наблюдение за изменениями SCSS файлов
+    gulp.watch(paths.scss, gulp.series('sass'));  // Компиляция при изменении SCSS
 
-// Экспортируем задачи
-exports.compileSass = compileSass;
-exports.watch = gulp.series(compileSass, watchFiles);
+    // Наблюдение за изменениями PHP и JS файлов
+    gulp.watch('**/*.php').on('change', browserSync.reload);
+    gulp.watch('**/*.js').on('change', browserSync.reload);
+});
+
+// Задача по умолчанию
+gulp.task('default', gulp.series('sass', 'serve'));
